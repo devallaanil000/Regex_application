@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Web App Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        p.valid {
+            color: green;
+        }
+
+        p.invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Regex Web App Results</h1>
+
+    <h2>Regex Pattern Matches:</h2>
+    <ul>
+        {% for match in regex_matches %}
+            <li>{{ match }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Email Validation Result:</h2>
+    <p class="{% if is_email_valid %}valid{% else %}invalid{% endif %}">
+        The email "{{ email }}" is {% if is_email_valid %}valid{% else %}invalid{% endif %}.
+    </p>
+</body>
+</html>
